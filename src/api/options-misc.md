@@ -48,15 +48,15 @@
   ```js
   app.component('base-input', {
     inheritAttrs: false,
-    props: ['label', 'value'],
-    emits: ['input'],
+    props: ['label', 'modelValue'],
+    emits: ['update:modelValue'],
     template: `
       <label>
         {{ label }}
         <input
           v-bind="$attrs"
-          v-bind:value="value"
-          v-on:input="$emit('input', $event.target.value)"
+          v-bind:modelValue="value"
+          v-on:input="$emit('update:modelValue', $event.target.value)"
         >
       </label>
     `
